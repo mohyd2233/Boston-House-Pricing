@@ -15,46 +15,58 @@
 
         body {
             font-family: 'Open Sans Condensed', sans-serif;
-            background: #f4f7f6;
+            background: #2c3e50;
+            color: #ecf0f1;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/07/11/59/architecture-2609737_960_720.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .container {
             width: 100%;
             max-width: 600px;
-            background: #ffffff;
+            background: rgba(44, 62, 80, 0.8);
             padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            text-align: center;
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
             font-size: 3rem;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
+            color: #ecf0f1;
+            margin-bottom: 30px;
         }
 
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         input[type="text"] {
             padding: 12px;
             margin: 10px 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            border: none;
+            border-radius: 10px;
             font-size: 1rem;
+            width: 90%;
+            background: #34495e;
+            color: #ecf0f1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         input[type="text"]:focus {
             outline: none;
-            border-color: #3498db;
+            border: 2px solid #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.8);
         }
 
         button {
@@ -62,11 +74,12 @@
             background-color: #3498db;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 1.2rem;
             cursor: pointer;
             margin-top: 20px;
-            transition: background-color 0.3s ease;
+            width: 50%;
+            transition: all 0.3s ease;
         }
 
         button:hover {
@@ -74,10 +87,16 @@
         }
 
         .result {
-            text-align: center;
             margin-top: 30px;
             font-size: 1.5rem;
-            color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .result p {
+            background: #16a085;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsive design */
@@ -116,15 +135,18 @@
             <input type="text" name="PTRATIO" placeholder="PTRATIO" required /><br>
             <input type="text" name="B" placeholder="B" required /><br>
             <input type="text" name="LSTAT" placeholder="LSTAT" required /><br>
-            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            <button type="submit">Predict</button>
         </form>
 
         <div class="result">
-            <!-- Display prediction result here -->
-            {{ prediction_text }}
+            <!-- Prediction result will be displayed here -->
+            {% if prediction_text %}
+            <p>{{ prediction_text }}</p>
+            {% endif %}
         </div>
     </div>
 
 </body>
 
 </html>
+
