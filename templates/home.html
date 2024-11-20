@@ -15,12 +15,14 @@
 
         body {
             font-family: 'Open Sans Condensed', sans-serif;
-            background: #2c3e50;
+            background: #1a1a2e;
             color: #ecf0f1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            overflow-y: auto;
             background-image: url('https://cdn.pixabay.com/photo/2017/08/07/11/59/architecture-2609737_960_720.jpg');
             background-size: cover;
             background-position: center;
@@ -30,17 +32,19 @@
         .container {
             width: 100%;
             max-width: 600px;
-            background: rgba(44, 62, 80, 0.8);
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(26, 26, 46, 0.9);
+            padding: 40px 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             border-radius: 15px;
             text-align: center;
+            margin: 40px 20px;
+            overflow-y: auto;
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
-            font-size: 3rem;
-            color: #ecf0f1;
+            font-size: 2.5rem;
+            color: #f0f0f0;
             margin-bottom: 30px;
         }
 
@@ -48,18 +52,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-height: 70vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #3498db #34495e;
         }
 
         input[type="text"] {
-            padding: 12px;
-            margin: 10px 0;
+            padding: 15px;
+            margin: 8px 0;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1rem;
             width: 90%;
             background: #34495e;
             color: #ecf0f1;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
 
@@ -75,10 +83,10 @@
             color: white;
             border: none;
             border-radius: 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             margin-top: 20px;
-            width: 50%;
+            width: 70%;
             transition: all 0.3s ease;
         }
 
@@ -87,27 +95,42 @@
         }
 
         .result {
-            margin-top: 30px;
-            font-size: 1.5rem;
+            margin-top: 25px;
+            font-size: 1.3rem;
             color: #ecf0f1;
         }
 
         .result p {
             background: #16a085;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #34495e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            border-radius: 10px;
+            border: 2px solid #34495e;
         }
 
         /* Responsive design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             input[type="text"] {
                 font-size: 0.9rem;
-                padding: 10px;
+                padding: 12px;
             }
 
             button {
@@ -141,12 +164,14 @@
         <div class="result">
             <!-- Prediction result will be displayed here -->
             {% if prediction_text %}
-            <p>{{ prediction_text }}</p>
+                <p>{{ prediction_text }}</p>
             {% endif %}
         </div>
+        
     </div>
 
 </body>
 
 </html>
+
 

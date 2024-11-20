@@ -11,7 +11,7 @@ def home():
     return render_template('home.html')
 
 #THIS CODE WAS USED FOR TESTING THE APPLICATION WITHOUT ANY FRONT-END UI
-# JUST BY USING POSTMAN TO TEST IF THE API ENDPOINT IS HITTING THE "def predict_api()" fucntion BELOW.
+# JUST BY USING POSTMAN TO TEST IF THE API ENDPOINT IS HITTING THE "def predict_api()" fucntion BELOW
 '''@app.route('/predict_api',methods=['POST'])
 def predict_api():
     data=request.json['data']
@@ -32,5 +32,3 @@ def predict():
 
 if __name__=="__main__":
     app.run(debug=True)
-   
-     
